@@ -96,11 +96,11 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         // Champs du formulaire
-        CustomTextField(nom, { nom = it }, "Nom", Icons.Default.Person)
-        CustomTextField(prenom, { prenom = it }, "Prénom", Icons.Default.Person)
+        CustomTextFielld(nom, { nom = it }, "Nom", Icons.Default.Person)
+        CustomTextFielld(prenom, { prenom = it }, "Prénom", Icons.Default.Person)
         CustomDropdown(genre, { genre = it }, "Genre", listOf("Homme", "Femme", "Autre"))
-        CustomTextField(nationalite, { nationalite = it }, "Nationalité", Icons.Default.Place)
-        CustomTextField(telephone, { telephone = it }, "Téléphone", Icons.Default.Phone, KeyboardType.Phone)
+        CustomTextFielld(nationalite, { nationalite = it }, "Nationalité", Icons.Default.Place)
+        CustomTextFielld(telephone, { telephone = it }, "Téléphone", Icons.Default.Phone, KeyboardType.Phone)
         CustomPasswordField(motDePasse, { motDePasse = it }, "Mot de passe")
         CustomPasswordField(confirmerMotDePasse, { confirmerMotDePasse = it }, "Confirmer le mot de passe")
 
@@ -116,7 +116,7 @@ fun RegisterScreen(
 }
 
 @Composable
-fun CustomTextField(
+fun CustomTextFielld(
     value: String,
     onValueChange: (String) -> Unit,
     label: String,

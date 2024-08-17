@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.mavie.component.CustomButton
+import com.example.mavie.component.CustomTextField
 import com.example.mavie.ui.theme.primary
 
 @Composable
