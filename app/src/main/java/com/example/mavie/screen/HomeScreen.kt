@@ -33,7 +33,7 @@ fun HomeScreen(){
         topBar ={
             TopAppBar(
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(10.dp,5.dp)
                     .clip(RoundedCornerShape(20)),
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.outline.copy(0.4f)
