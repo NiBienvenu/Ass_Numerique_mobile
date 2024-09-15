@@ -1,4 +1,4 @@
-package com.example.mavie.screen
+package com.example.mavie.ui.screen
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -29,7 +29,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.mavie.component.CustomButton
+import com.example.mavie.ui.component.CustomButton
 
 //import coil.compose.rememberImagePainter
 //@Preview(showBackground = true, showSystemUi = true)

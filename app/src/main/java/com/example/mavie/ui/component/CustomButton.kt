@@ -1,4 +1,4 @@
-package com.example.mavie.component
+package com.example.mavie.ui.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height

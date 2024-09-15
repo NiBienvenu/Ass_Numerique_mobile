@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mavie.screen.RegisterScreen
-import com.example.mavie.screen.LoginScreen
+import com.example.mavie.ui.screen.RegisterScreen
+import com.example.mavie.ui.screen.LoginScreen
 import com.example.mavie.ui.theme.MaVieTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.mavie.screen
+package com.example.mavie.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -37,8 +37,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mavie.component.CustomButton
-import com.example.mavie.component.CustomTextField
+import com.example.mavie.ui.component.CustomButton
+import com.example.mavie.ui.component.CustomTextField
 import com.example.mavie.ui.theme.primary
 
 @Composable
