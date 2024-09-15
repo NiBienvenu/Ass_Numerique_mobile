@@ -24,9 +24,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BottomNavigationAnimation(
-    screens: List<BottomNavigation>
+    screens: List<BottomNavigation>,
+    onItemClick: (String) -> Unit,
+    currentRoute: String
 ) {
-    var selectedScreen by remember { mutableStateOf(0) }
+    var selectedScreen by remember { mutableStateOf(screens.indexOfFirst { it.title == currentRoute }) }
 
     Box(
         modifier = Modifier
@@ -40,13 +42,15 @@ fun BottomNavigationAnimation(
             modifier = Modifier.fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            for (screen in screens) {
-                val isSelected = screen == screens[selectedScreen]
+            for ((index, screen) in screens.withIndex()) {
+                val isSelected = index == selectedScreen
                 val animatedWeight by animateFloatAsState(targetValue = if (isSelected) 1.5f else 1f)
 
                 Box(
-                    modifier = Modifier.weight(animatedWeight),
-                    contentAlignment = Center
+                    modifier = Modifier
+                        .weight(animatedWeight)
+                        .padding(horizontal = 8.dp),
+                    contentAlignment = Alignment.Center
                 ) {
                     val interactionSource = remember { MutableInteractionSource() }
                     BottomNavItem(
@@ -56,7 +60,9 @@ fun BottomNavigationAnimation(
                             interactionSource = interactionSource,
                             indication = null
                         ) {
-                            selectedScreen = screens.indexOf(screen)
+                            // Update selected screen index and notify the caller
+                            selectedScreen = index
+                            onItemClick(screen.title)
                         }
                     )
                 }

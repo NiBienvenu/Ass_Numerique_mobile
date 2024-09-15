@@ -24,58 +24,56 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.example.mavie.ui.navigation.BottomNavigation
 import com.example.mavie.ui.navigation.BottomNavigationAnimation
+import com.example.mavie.ui.navigation.Graph
+import com.example.mavie.ui.navigation.MainRouteScreen
 import com.example.mavie.ui.screen.RegisterScreen
 import com.example.mavie.ui.screen.LoginScreen
 import com.example.mavie.ui.theme.MaVieTheme
+import ui.navigation.graphs.RootNavGraph
+import ui.navigation.graphs.mainNavGraph
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Configure la fenêtre pour étendre le contenu derrière la barre de navigation système
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-
         setContent {
             MaVieTheme {
-                val windowInsets = WindowInsets.navigationBars
-                val bottomInset = with(LocalDensity.current) { windowInsets.getBottom(this).toDp() }
+                val rootNavController = rememberNavController()
+                val currentRoute = rootNavController.currentBackStackEntryAsState().value?.destination?.route ?: MainRouteScreen.Home.route
 
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
                         BottomNavigationAnimation(
-                            listOf(
+                            screens = listOf(
                                 BottomNavigation.Home,
                                 BottomNavigation.Create,
                                 BottomNavigation.Profile,
                                 BottomNavigation.Settings
                             ),
-                            //modifier = Modifier.navigationBarsPadding() // Ajoute un padding pour la barre de navigation système
-                        )
-                    },
-//                    contentWindowInsets = WindowInsets(0, 0, 0, 0) // Réinitialise les insets par défaut
-                ) { innerPadding ->
-                    Column(
-                        modifier = Modifier
-                            .padding(innerPadding)
-                            .fillMaxSize()
-                    ) {
-                        Text(
-                            text = "Welcome to the Main Screen",
-                            style = MaterialTheme.typography.bodyLarge,
-                            modifier = Modifier.padding(16.dp)
+                            onItemClick = { route ->
+                                rootNavController.navigate(route) {
+                                    popUpTo(Graph.MainScreenGraph) { saveState = true }
+                                    launchSingleTop = true
+                                    restoreState = true
+                                }
+                            },
+                            currentRoute = currentRoute
                         )
                     }
+                ) { innerPadding ->
+                    RootNavGraph(
+                        rootNavController = rootNavController,
+                        innerPadding = innerPadding
+                    )
                 }
             }
-        }
-
-        // Optionnel : cache la barre de navigation système si nécessaire
-        WindowInsetsControllerCompat(window, window.decorView).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.navigationBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 }

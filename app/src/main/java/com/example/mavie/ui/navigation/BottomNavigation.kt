@@ -18,8 +18,8 @@ sealed class BottomNavigation(
     val activeIcon: ImageVector,
     val inactiveIcon: ImageVector
 ) {
-    object Home: BottomNavigation("Home", Icons.Filled.Home, Icons.Outlined.Home)
-    object Create: BottomNavigation("Create", Icons.Filled.Create, Icons.Outlined.Create)
-    object Profile: BottomNavigation("Profile", Icons.Filled.Person, Icons.Outlined.Person)
-    object Settings: BottomNavigation("Settings", Icons.Filled.Settings, Icons.Outlined.Settings)
+    object Home: BottomNavigation("home", Icons.Filled.Home, Icons.Outlined.Home)
+    object Create: BottomNavigation("create", Icons.Filled.Create, Icons.Outlined.Create)
+    object Profile: BottomNavigation("edit", Icons.Filled.Person, Icons.Outlined.Person)
+    object Settings: BottomNavigation("setting", Icons.Filled.Settings, Icons.Outlined.Settings)
 }
