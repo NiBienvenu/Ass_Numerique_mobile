@@ -36,6 +36,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.mavie.component.CustomButton
 import com.example.mavie.component.CustomTextField
 import com.example.mavie.ui.theme.primary
@@ -61,11 +62,12 @@ fun LoginScreen(
             .fillMaxSize()
             .background(brush = gradientBackground)
     ) {
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp)
-                 .verticalScroll(rememberScrollState()),
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -168,8 +170,10 @@ fun LoginScreen(
                             )
                         }
                     }
+
                 }
             }
+            Text(text = "Power by DCB", fontSize = 10.sp)
         }
     }
 

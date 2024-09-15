@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaVieTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    RegisterScreen(
+                    LoginScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
 
