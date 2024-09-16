@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                             screens = listOf(
                                 BottomNavigation.Home,
                                 BottomNavigation.Contrats,
-                                BottomNavigation.Settings,
+                                BottomNavigation.Historique,
                                 BottomNavigation.Profile
                             ),
                             onItemClick = { route ->
