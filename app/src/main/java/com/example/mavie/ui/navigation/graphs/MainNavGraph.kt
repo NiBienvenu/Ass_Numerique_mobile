@@ -24,14 +24,14 @@ fun NavGraphBuilder.mainNavGraph(
         composable(route = MainRouteScreen.Home.route) {
             HomeScreen(rootNavController = rootNavController, paddingValues = innerPadding)
         }
-        composable(route = MainRouteScreen.Edit.route) {
+        composable(route = MainRouteScreen.Contrats.route) {
             EditScreen(rootNavController = rootNavController, paddingValues = innerPadding)
-        }
-        composable(route = MainRouteScreen.Create.route) {
-            CreateScreen(rootNavController = rootNavController, paddingValues = innerPadding)
         }
         composable(route = MainRouteScreen.Setting.route) {
             SettingScreen(rootNavController = rootNavController, paddingValues = innerPadding)
+        }
+        composable(route = MainRouteScreen.Profile.route) {
+            CreateScreen(rootNavController = rootNavController, paddingValues = innerPadding)
         }
     }
 }

@@ -34,9 +34,9 @@ fun BottomNavigationAnimation(
         modifier = Modifier
             .shadow(5.dp)
             .background(color = MaterialTheme.colorScheme.surface)
-            .height(64.dp)
+            .height(50.dp)
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = 5.dp)
     ) {
         Row(
             modifier = Modifier.fillMaxSize(),
@@ -49,7 +49,7 @@ fun BottomNavigationAnimation(
                 Box(
                     modifier = Modifier
                         .weight(animatedWeight)
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = 4.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     val interactionSource = remember { MutableInteractionSource() }

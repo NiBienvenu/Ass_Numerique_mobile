@@ -5,10 +5,10 @@ object Graph {
 }
 
 sealed class MainRouteScreen(val route: String) {
-    object Home : MainRouteScreen("home")
-    object Create : MainRouteScreen("create")
-    object Edit : MainRouteScreen("edit")
-    object Setting : MainRouteScreen("setting")
+    object Home : MainRouteScreen("Accueil")
+    object Contrats : MainRouteScreen("Contrats")
+    object Setting : MainRouteScreen("Historique")
+    object Profile : MainRouteScreen("Profile")
 }
 
 sealed class NewsRouteScreen(val route: String) {

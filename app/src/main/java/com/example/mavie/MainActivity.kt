@@ -53,9 +53,9 @@ class MainActivity : ComponentActivity() {
                         BottomNavigationAnimation(
                             screens = listOf(
                                 BottomNavigation.Home,
-                                BottomNavigation.Create,
-                                BottomNavigation.Profile,
-                                BottomNavigation.Settings
+                                BottomNavigation.Contrats,
+                                BottomNavigation.Settings,
+                                BottomNavigation.Profile
                             ),
                             onItemClick = { route ->
                                 rootNavController.navigate(route) {

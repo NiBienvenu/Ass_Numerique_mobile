@@ -52,7 +52,8 @@ fun BottomNavItem(
     )
 
     Box(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Row(
@@ -60,11 +61,11 @@ fun BottomNavItem(
                 .height(animateHeight)
                 .shadow(
                     elevation = animatedElevation,
-                    shape = RoundedCornerShape(20.dp)
+                    shape = RoundedCornerShape(5.dp)
                 )
                 .background(
                     color = MaterialTheme.colorScheme.surface,
-                    shape = RoundedCornerShape(20.dp)
+                    shape = RoundedCornerShape(5.dp)
                 ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
@@ -85,7 +86,7 @@ fun BottomNavItem(
             AnimatedVisibility(visible = isSelected) {
                 Text(
                     text = screen.title,
-                    modifier = Modifier.padding(start = 8.dp, end = 10.dp),
+                    modifier = Modifier.padding(start = 5.dp, end = 5.dp),
                     maxLines = 1
                 )
             }
