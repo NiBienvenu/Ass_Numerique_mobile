@@ -1,4 +1,4 @@
-package com.example.mavie.ui.screen
+package com.example.mavie.ui.auth
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult

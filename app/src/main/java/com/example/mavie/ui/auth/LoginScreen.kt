@@ -1,4 +1,4 @@
-package com.example.mavie.ui.screen
+package com.example.mavie.ui.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

@@ -11,8 +11,11 @@ sealed class MainRouteScreen(val route: String) {
     object Profile : MainRouteScreen("Profile")
 }
 
-sealed class NewsRouteScreen(val route: String) {
-    object NewsDetail : NewsRouteScreen("newsDetail")
+sealed class AuhtRouteScreen(val route: String) {
+    object Login : AuhtRouteScreen("login")
+    object register : AuhtRouteScreen("register")
+    object ForgetPassword : AuhtRouteScreen("forgetPassword")
+
 }
 
 sealed class SettingRouteScreen(val route: String) {
