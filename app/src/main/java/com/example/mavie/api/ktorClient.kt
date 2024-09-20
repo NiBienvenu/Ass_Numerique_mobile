@@ -19,7 +19,6 @@ class KtorClient{
             logger = Logger.SIMPLE
         }
 
-
         install(ContentNegotiation) {
             json(
                 Json{

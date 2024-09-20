@@ -76,7 +76,7 @@ dependencies {
     implementation(libs.ktor.client.serialization)    // For JSON serialization
     implementation(libs.ktor.client.logging) // Optional: For logging requests/responses
     implementation(libs.ktor.client.okhttp) //For a multiplatform project, you need to add a dependency for the required engine to a corresponding source set.
-    implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
 
     // Kotlinx Serialization

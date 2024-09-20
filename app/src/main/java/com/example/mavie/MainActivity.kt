@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.mavie.api.KtorClient
 import com.example.mavie.ui.navigation.BottomNavigation
 import com.example.mavie.ui.navigation.BottomNavigationAnimation
 import com.example.mavie.ui.navigation.Graph
@@ -29,7 +30,7 @@ class MainActivity : ComponentActivity() {
             MaVieTheme {
                 val rootNavController = rememberNavController()
                 val currentRoute = rootNavController.currentBackStackEntryAsState().value?.destination?.route ?: MainRouteScreen.Home.route
-
+                KtorClient()
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
