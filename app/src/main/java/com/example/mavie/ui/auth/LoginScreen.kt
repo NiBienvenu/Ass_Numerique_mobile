@@ -162,7 +162,7 @@ fun LoginScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(text = "Avez vous un compte?", style = MaterialTheme.typography.bodySmall,)
-                        TextButton(onClick = { /* Logique pour mot de passe oublié */ }) {
+                        TextButton(onClick = {  }) {
                             Text(
                                 "S'inscrire",
                                 color = primary,

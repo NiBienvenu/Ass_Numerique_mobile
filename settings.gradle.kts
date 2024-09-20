@@ -9,6 +9,14 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap")
+            url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+        }
+
+    }
+    plugins {
+        id("org.jetbrains.kotlin.plugin.serialization") version "1.7.10" // Remplacez par votre version
     }
 }
 dependencyResolutionManagement {

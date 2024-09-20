@@ -70,4 +70,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio) // or ktor-client-okhttp if you prefer OkHttp
+    implementation(libs.ktor.client.serialization)    // For JSON serialization
+    implementation(libs.ktor.client.logging) // Optional: For logging requests/responses
+    implementation(libs.ktor.client.okhttp) //For a multiplatform project, you need to add a dependency for the required engine to a corresponding source set.
+    implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+
+    // Kotlinx Serialization
+    implementation(libs.kotlinx.serialization.json)
 }
