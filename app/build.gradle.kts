@@ -72,6 +72,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Ktor Client
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.cio) // or ktor-client-okhttp if you prefer OkHttp
     implementation(libs.ktor.client.serialization)    // For JSON serialization
@@ -82,4 +83,11 @@ dependencies {
 
     // Kotlinx Serialization
     implementation(libs.kotlinx.serialization.json)
+
+    // Security-encrypt
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+
+    //  Splash screens
+    implementation("androidx.core:core-splashscreen:1.0.0")
+
 }

@@ -1,5 +1,6 @@
 package com.example.mavie.ui.auth
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,6 +27,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,17 +39,32 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import com.example.mavie.data.SecurePreferencesManager
 import com.example.mavie.ui.component.CustomButton
 import com.example.mavie.ui.component.CustomTextField
+import com.example.mavie.ui.navigation.Graph
 import com.example.mavie.ui.theme.primary
 
 @Composable
 fun LoginScreen(
-    modifier: Modifier
+    modifier: Modifier,
+    navController: NavHostController,
+    context: Context
 ) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var rememberMe by remember { mutableStateOf(false) }
+    var errorMessage by remember { mutableStateOf("") }
+
+    val securePreferencesManager = SecurePreferencesManager(context)
+    LaunchedEffect(Unit) {
+        securePreferencesManager.rememberMe.collect { isRemembered ->
+            if (isRemembered) {
+                navController.navigate(Graph.MainScreenGraph)
+            }
+        }
+    }
 
     val greenColor = Color(0xFF4CAF50)
     val whiteColor = Color.White
@@ -143,7 +160,19 @@ fun LoginScreen(
                         )
                         Text("Se souvenir \n de moi",style = MaterialTheme.typography.bodySmall)
                         Spacer(modifier = Modifier.weight(1f))
-                        TextButton(onClick = { /* Logique pour mot de passe oublié */ }) {
+                        TextButton(
+                              onClick = {
+                                  if (username == "admin" && password == "12345678") {
+                                      // Logique de connexion réussie
+                                      if (rememberMe) {
+                                          securePreferencesManager.saveRememberMe(true) // Enregistrer l'état "Se souvenir de moi"
+                                      }
+                                      navController.navigate(Graph.MainScreenGraph) // Naviguer vers l'écran principal
+                                  } else {
+                                      errorMessage = "Identifiants invalides"
+                                  }
+                            }
+                        ) {
                             Text(
                                 "Mot de passe oublié ?",
                                 color = primary,

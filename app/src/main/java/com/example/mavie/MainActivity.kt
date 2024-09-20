@@ -35,8 +35,7 @@ class MainActivity : ComponentActivity() {
                 val rootNavController = rememberNavController()
                 val currentRoute = rootNavController.currentBackStackEntryAsState().value?.destination?.route ?: MainRouteScreen.Home.route
 
-                LaunchedEffect(key1 = Unit) {
-                }
+
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
@@ -72,9 +71,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     MaVieTheme {
-        LoginScreen(
-            modifier = Modifier.padding()
-        )
+//        LoginScreen(
+//            modifier = Modifier.padding()
+//        )
     }
 }
 
