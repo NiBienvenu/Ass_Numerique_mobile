@@ -58,13 +58,13 @@ fun LoginScreen(
     var errorMessage by remember { mutableStateOf("") }
 
     val securePreferencesManager = SecurePreferencesManager(context)
-    LaunchedEffect(Unit) {
-        securePreferencesManager.rememberMe.collect { isRemembered ->
-            if (isRemembered) {
-                navController.navigate(Graph.MainScreenGraph)
-            }
-        }
-    }
+//    LaunchedEffect(Unit) {
+//        securePreferencesManager.rememberMe.collect { isRemembered ->
+//            if (isRemembered) {
+//                navController.navigate(Graph.MainScreenGraph)
+//            }
+//        }
+//    }
 
     val greenColor = Color(0xFF4CAF50)
     val whiteColor = Color.White
@@ -162,7 +162,9 @@ fun LoginScreen(
                         Spacer(modifier = Modifier.weight(1f))
                         TextButton(
                               onClick = {
-                                  if (username == "admin" && password == "12345678") {
+                                  println("click")
+                                  if (true) {
+                                      println("username already present in password field")
                                       // Logique de connexion réussie
                                       if (rememberMe) {
                                           securePreferencesManager.saveRememberMe(true) // Enregistrer l'état "Se souvenir de moi"
@@ -184,7 +186,21 @@ fun LoginScreen(
                     }
                     CustomButton(
                         text = "Se connecter",
-                        onClick = { /* Logique de connexion */ }
+                        onClick = {
+
+                                if (username == "admin" && password == "12345678") {
+                                    if (rememberMe) {
+                                        securePreferencesManager.saveRememberMe(true)
+                                    }
+
+                                    navController.navigate(Graph.MainScreenGraph) {
+                                        popUpTo(Graph.AuthGraph) { inclusive = true }
+                                    }
+                                } else {
+                                    errorMessage = "Identifiants invalides"
+                                }
+
+                        }
                     )
 
                     Row(

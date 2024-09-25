@@ -1,23 +1,31 @@
-package ui.navigation.graphs
+package com.example.mavie.ui.navigation
 
+import MainNavScreen
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.example.mavie.ui.navigation.Graph
+import androidx.navigation.compose.composable
+import com.example.mavie.ui.auth.LoginScreen
+
 
 @Composable
-fun RootNavGraph(
-    rootNavController: NavHostController,
-    innerPadding: PaddingValues
-) {
+fun RootNavGraph(navController: NavHostController) {
     NavHost(
-        navController = rootNavController,
-        startDestination = Graph.MainScreenGraph,
-        Modifier.padding(innerPadding)
+        navController = navController,
+        startDestination = Graph.AuthGraph,
+        route = Graph.RootGraph
     ) {
-        mainNavGraph(rootNavController = rootNavController, innerPadding = innerPadding)
+        composable(route = Graph.AuthGraph) {
+            LoginScreen(
+                modifier = Modifier,
+                navController = navController,
+                context = navController.context
+            )
+        }
+        composable(route = Graph.MainScreenGraph) {
+            MainNavScreen(innerPadding = PaddingValues())
+        }
     }
 }

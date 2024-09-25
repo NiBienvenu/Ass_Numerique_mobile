@@ -2,6 +2,8 @@ package com.example.mavie.ui.navigation
 
 object Graph {
     const val MainScreenGraph = "mainScreenGraph"
+    const val RootGraph = "root_graph"
+    const val AuthGraph = "auth_graph"
 }
 
 sealed class MainRouteScreen(val route: String) {
