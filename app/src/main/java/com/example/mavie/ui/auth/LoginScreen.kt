@@ -58,13 +58,15 @@ fun LoginScreen(
     var errorMessage by remember { mutableStateOf("") }
 
     val securePreferencesManager = SecurePreferencesManager(context)
-//    LaunchedEffect(Unit) {
-//        securePreferencesManager.rememberMe.collect { isRemembered ->
-//            if (isRemembered) {
-//                navController.navigate(Graph.MainScreenGraph)
-//            }
-//        }
-//    }
+    LaunchedEffect(Unit) {
+        securePreferencesManager.rememberMe.collect { isRemembered ->
+            if (isRemembered) {
+                navController.navigate(Graph.MainScreenGraph) {
+                    popUpTo(Graph.AuthGraph) { inclusive = true }
+                }
+            }
+        }
+    }
 
     val greenColor = Color(0xFF4CAF50)
     val whiteColor = Color.White

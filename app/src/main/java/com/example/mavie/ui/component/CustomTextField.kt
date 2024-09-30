@@ -20,10 +20,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.mavie.R
+
 //import androidx.constraintlayout.compose.Visibility
 
 
@@ -60,11 +63,21 @@ fun CustomTextField(
         trailingIcon = if (isPassword) {
             {
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(
-                        imageVector = if (passwordVisible) Icons.Default.CheckCircle else Icons.Outlined.CheckCircle,
-//                        imageVector = if (passwordVisible) Icons.Default.Visibility else Icons.Default.VisibilityOff,
-                        contentDescription = if (passwordVisible) "Cacher le mot de passe" else "Afficher le mot de passe"
-                    )
+
+                    if (passwordVisible){
+                        Icon(
+                            painter = painterResource(id = R.drawable.baseline_visibility_24),
+                            contentDescription = "visibility icon"
+
+                        )
+                    }else{
+                        Icon(
+                            painter = painterResource(id = R.drawable.baseline_visibility_off_24),
+                            contentDescription = "visibility icon"
+
+                        )
+                    }
+
                 }
             }
         } else null
